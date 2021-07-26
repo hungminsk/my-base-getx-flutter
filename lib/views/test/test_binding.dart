@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:getx_flutter/base/base_controller.dart';
-import 'package:getx_flutter/models/member.dart';
-import 'package:getx_flutter/view_models/member/member_controller.dart';
+import 'package:ints/base/base_controller.dart';
+import 'package:ints/models/member.dart';
+import 'package:ints/view_models/member/member_controller.dart';
 
 /// createdby Daewu Bintara
 /// Saturday, 1/30/21

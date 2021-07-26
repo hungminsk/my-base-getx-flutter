@@ -1,4 +1,4 @@
-import 'package:getx_flutter/base/base_controller.dart';
+import 'package:ints/base/base_controller.dart';
 
 /// createdby Daewu Bintara
 /// Thursday, 2/11/21
@@ -11,5 +11,4 @@ class ProductController extends BaseController {
     super.onInit();
     productName.value = "Testing";
   }
-
 }

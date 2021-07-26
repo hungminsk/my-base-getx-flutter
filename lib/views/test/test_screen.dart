@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:getx_flutter/base/base_view_view_model.dart';
-import 'package:getx_flutter/view_models/member/member_widget.dart';
-import 'package:getx_flutter/x_res/my_res.dart';
+import 'package:ints/base/base_view_view_model.dart';
+import 'package:ints/view_models/member/member_widget.dart';
+import 'package:ints/x_res/my_res.dart';
 
 import 'test_binding.dart';
 

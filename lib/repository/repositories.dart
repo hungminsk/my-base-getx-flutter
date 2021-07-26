@@ -1,5 +1,5 @@
-import 'package:getx_flutter/base/networking/api.dart';
-import 'package:getx_flutter/base/networking/result.dart';
+import 'package:ints/base/networking/api.dart';
+import 'package:ints/base/networking/result.dart';
 
 /// createdby Daewu Bintara
 /// Friday, 1/29/21

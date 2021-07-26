@@ -1,4 +1,4 @@
-package com.daw.getx_flutter
+package com.daw.ints
 
 import io.flutter.embedding.android.FlutterActivity
 

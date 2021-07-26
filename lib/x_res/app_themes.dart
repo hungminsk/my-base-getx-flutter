@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'my_res.dart';
 
+import 'my_res.dart';
 
 /// Created by daewubintara on
 /// 08, September 2020 16.17
@@ -20,10 +20,7 @@ class AppThemes {
 
   // LIGHT THEME TEXT
   static final TextTheme _lightTextTheme = TextTheme(
-    overline: TextStyle(
-      color: MyColor.TEXT_COLOR,
-      fontFamily: _fontFamily
-    ),
+    overline: TextStyle(color: MyColor.TEXT_COLOR, fontFamily: _fontFamily),
     headline1: TextStyle(fontSize: 20.0, fontFamily: _fontFamily),
     bodyText1: TextStyle(fontSize: 16.0, fontFamily: _fontFamily),
     bodyText2: TextStyle(fontSize: 14.0, fontFamily: _fontFamily),
@@ -35,10 +32,8 @@ class AppThemes {
 
   // DARK THEME TEXT
   static final TextTheme _darkTextTheme = TextTheme(
-    overline: TextStyle(
-        color: MyColor.TEXT_COLOR_DARK,
-        fontFamily: _fontFamily
-    ),
+    overline:
+        TextStyle(color: MyColor.TEXT_COLOR_DARK, fontFamily: _fontFamily),
     headline1: TextStyle(fontSize: 20.0, fontFamily: _fontFamily),
     bodyText1: TextStyle(fontSize: 16.0, fontFamily: _fontFamily),
     bodyText2: TextStyle(fontSize: 14.0, fontFamily: _fontFamily),
@@ -67,7 +62,7 @@ class AppThemes {
       primaryVariant: MyColor.PRIMARY_VARIANT,
     ),
     snackBarTheme:
-    SnackBarThemeData(backgroundColor: MyColor.LIGHT_BACKGROUND_COLOR),
+        SnackBarThemeData(backgroundColor: MyColor.LIGHT_BACKGROUND_COLOR),
     iconTheme: IconThemeData(
       color: MyColor.ICON_COLOR,
     ),
@@ -95,7 +90,7 @@ class AppThemes {
       primaryVariant: MyColor.PRIMARY_VARIANT,
     ),
     snackBarTheme:
-    SnackBarThemeData(backgroundColor: MyColor.DARK_BACKGROUND_COLOR),
+        SnackBarThemeData(backgroundColor: MyColor.DARK_BACKGROUND_COLOR),
     iconTheme: IconThemeData(
       color: MyColor.ICON_COLOR_DARK,
     ),
@@ -104,12 +99,12 @@ class AppThemes {
   );
 
   /// LIGHT THEME
-  static ThemeData theme(){
+  static ThemeData theme() {
     return _lightTheme;
   }
 
   /// DARK THEME
-  static ThemeData darktheme() {
+  static ThemeData darkTheme() {
     return _darkTheme;
   }
 
@@ -126,7 +121,7 @@ class AppThemes {
   /// This [Function] works to initialize what theme is used.
   ThemeMode init() {
     final box = GetStorage();
-    String tm = box.read(_sThemeModeKey);
+    String? tm = box.read(_sThemeModeKey);
     if (tm == null) {
       box.write(_sThemeModeKey, _sThemeModeLight);
       return ThemeMode.light;
@@ -169,5 +164,4 @@ class AppThemes {
     }
     return _darkTheme;
   }
-
 }

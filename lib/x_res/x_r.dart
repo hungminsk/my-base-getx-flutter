@@ -1,6 +1,5 @@
 /// createdby Daewu Bintara
 /// Monday, 2/1/21
-
 import 'package:get/get.dart';
 
 class XR {
@@ -9,10 +8,9 @@ class XR {
 }
 
 class _AssetsImage {
-
   static const String images = 'assets/images/';
 
-  String img_logo = images+'img_logo.png';
+  String img_logo = images + 'img_logo.png';
 }
 
 class _String {
@@ -30,4 +28,6 @@ class _String {
   String my_flutter = 'my_flutter'.tr;
   String change_theme = 'change_theme'.tr;
 
+  String portfolio_title = 'portfolio_title'.tr;
+  String portfolio_name = 'portfolio_name'.tr;
 }

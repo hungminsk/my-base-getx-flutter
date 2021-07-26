@@ -1,4 +1,4 @@
-# getx_flutter
+# ints
 
 Simple petern awesome permformance.
 
@@ -15,7 +15,7 @@ For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 
-## Customed getx_flutter | my-base-getx-flutter
+## Customed ints | my-base-getx-flutter
 
 - Clean written code.
 - Implement the MVVM architecture.

@@ -39,7 +39,7 @@ class MemberController extends BaseController {
     if (lang == 'id') {
       MyTranslations.updateLocale(langCode: 'en');
     } else {
-      MyTranslations.updateLocale(langCode: 'vi');
+      MyTranslations.updateLocale(langCode: 'id');
     }
     try {
       TestController testController = Get.find();
