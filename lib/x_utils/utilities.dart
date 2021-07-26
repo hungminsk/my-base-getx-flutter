@@ -3,13 +3,11 @@ import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import '../x_res/my_res.dart';
 import 'package:intl/intl.dart';
 import 'package:package_info/package_info.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-/// Created by daewubintara on
-/// 09, September 2020 11.03
+import '../x_res/my_res.dart';
 
 ///
 /// --------------------------------------------
@@ -17,7 +15,6 @@ import 'package:url_launcher/url_launcher.dart';
 /// Especialy in [Function]ality.
 /// You can find and use on your Controller wich is the Controller extends [BaseController].
 class Utilities {
-
   void callPhoneNumber({String phone = "0"}) async {
     launch("tel://${phone}");
   }
@@ -25,9 +22,9 @@ class Utilities {
   void intentOpenUrl({String link = "https://google.com"}) async {
     final url = link;
     if (await canLaunch(url)) {
-    await launch(url);
+      await launch(url);
     } else {
-    throw 'Could not launch $url';
+      throw 'Could not launch $url';
     }
   }
 
@@ -55,7 +52,7 @@ class Utilities {
     return value;
   }
 
-  String formattedDate({String format, String date}) {
+  String formattedDate({required String format, required String date}) {
     if (date == 'null') {
       return "";
     }
@@ -67,7 +64,7 @@ class Utilities {
     return formattedDate;
   }
 
-  String formattedDateGetDay({String format, String date}) {
+  String formattedDateGetDay({required String format, required String date}) {
     if (date == 'null') {
       return "";
     }
@@ -76,7 +73,7 @@ class Utilities {
     DateTime dateTime = dateFormat.parse(date);
 
     String formattedDate = DateFormat('EEEE').format(dateTime);
-    switch(formattedDate){
+    switch (formattedDate) {
       case "Monday":
         formattedDate = "Senin";
         break;
@@ -103,7 +100,7 @@ class Utilities {
     return formattedDate;
   }
 
-  String formattedDateGetMonth({String format, String date}) {
+  String formattedDateGetMonth({required String format, required String date}) {
     if (date == 'null') {
       return "";
     }
@@ -112,7 +109,7 @@ class Utilities {
     DateTime dateTime = dateFormat.parse(date);
 
     String formattedDate = DateFormat('MMMM').format(dateTime);
-    switch(formattedDate){
+    switch (formattedDate) {
       case "January":
         formattedDate = "Januari";
         break;
@@ -154,7 +151,7 @@ class Utilities {
     return formattedDate;
   }
 
-  String formattedSimpleDate({String format, String date}) {
+  String formattedSimpleDate({required String format, required String date}) {
     if (date == 'null') {
       return "";
     }
@@ -166,7 +163,8 @@ class Utilities {
     return formattedDate;
   }
 
-  String formattedSuperSimpleDate({String format, String date}) {
+  String formattedSuperSimpleDate(
+      {required String format, required String date}) {
     if (date == 'null') {
       return "";
     }
@@ -178,7 +176,8 @@ class Utilities {
     return formattedDate;
   }
 
-  String formattedDateTimeWithDay({String format, String date}) {
+  String formattedDateTimeWithDay(
+      {required String format, required String date}) {
     if (date == 'null') {
       return "";
     }
@@ -192,7 +191,7 @@ class Utilities {
     return '${day}, ${formattedDate}';
   }
 
-  String formattedDateTime({String format, String date}) {
+  String formattedDateTime({required String format, required String date}) {
     if (date == 'null') {
       return "";
     }
@@ -204,7 +203,7 @@ class Utilities {
     return formattedDate;
   }
 
-  String formattedTime({String format, String date}) {
+  String formattedTime({required String format, required String date}) {
     if (date == 'null') {
       return "";
     }
@@ -216,7 +215,8 @@ class Utilities {
     return formattedDate;
   }
 
-  String formattedSimpleDateTime({String format, String date}) {
+  String formattedSimpleDateTime(
+      {required String format, required String date}) {
     if (date == 'null') {
       return "";
     }
@@ -234,51 +234,52 @@ class Utilities {
     return htmlString;
   }
 
-  Future<String> getVersionApp() {
-    PackageInfo.fromPlatform().then((PackageInfo packageInfo) {
-      String appName = packageInfo.appName;
-      String packageName = packageInfo.packageName;
-      String version = packageInfo.version;
-      String buildNumber = packageInfo.buildNumber;
-      if(Platform.isAndroid) {
-        return "Version "+version;
-      } else {
-        return "Version "+version;
-      }
-    });
+  Future<String> getVersionApp() async {
+    PackageInfo packageInfo = await PackageInfo.fromPlatform();
+    String appName = packageInfo.appName;
+    String packageName = packageInfo.packageName;
+    String version = packageInfo.version;
+    String buildNumber = packageInfo.buildNumber;
+    if (Platform.isAndroid) {
+      return "Version " + version;
+    } else {
+      return "Version " + version;
+    }
   }
 
-
-  String stringCardFormated({String value = "", int splitOn = 3, String modelSplit = " "}) {
-    String newValue  = "Error Formating";
-    if(value.length < splitOn) {
+  String stringCardFormated(
+      {String value = "", int splitOn = 3, String modelSplit = " "}) {
+    String newValue = "Error Formating";
+    if (value.length < splitOn) {
       newValue = value;
     } else {
       int startIndex = 0;
       int endIndex = splitOn;
-      newValue = _formating(startIndex, endIndex, value, "", splitOn, modelSplit);
+      newValue =
+          _formating(startIndex, endIndex, value, "", splitOn, modelSplit);
     }
     return newValue;
   }
 
-  String _formating(int startIndex, int endIndex, String value, String temp, int splitOn, String modelSplit) {
-    if(startIndex == 0 && endIndex >= value.length) {
+  String _formating(int startIndex, int endIndex, String value, String temp,
+      int splitOn, String modelSplit) {
+    if (startIndex == 0 && endIndex >= value.length) {
       temp = value.substring(startIndex, endIndex);
       return temp;
     }
-    if(startIndex == 0 && endIndex < value.length) {
+    if (startIndex == 0 && endIndex < value.length) {
       temp = value.substring(startIndex, endIndex);
       startIndex += splitOn;
       endIndex += splitOn;
       return _formating(startIndex, endIndex, value, temp, splitOn, modelSplit);
     }
-    if(startIndex < value.length && endIndex < value.length) {
-      temp += "$modelSplit"+value.substring(startIndex, endIndex);
+    if (startIndex < value.length && endIndex < value.length) {
+      temp += "$modelSplit" + value.substring(startIndex, endIndex);
       startIndex += splitOn;
       endIndex += splitOn;
       return _formating(startIndex, endIndex, value, temp, splitOn, modelSplit);
     } else {
-      temp += "$modelSplit"+value.substring(startIndex, value.length);
+      temp += "$modelSplit" + value.substring(startIndex, value.length);
       return temp;
     }
   }
@@ -286,27 +287,31 @@ class Utilities {
   Color colorConvert(String color) {
     color = color.replaceAll("#", "");
     if (color.length == 6) {
-      return Color(int.parse("0xFF"+color));
-    } else if (color.length == 8) {
-      return Color(int.parse("0x"+color));
+      return Color(int.parse("0xFF" + color));
     }
+    // else if (color.length == 8) {
+    //   return Color(int.parse("0x" + color));
+    // }
+    return Color(int.parse("0x" + color));
   }
 
   String stringSliptedConvertToSentence(String string, String splitter) {
     string = string.replaceAll("$splitter", " ");
     string = string.capitalizeFirstofEach;
+    return string;
   }
 
-  void logWhenDebug(String tag,String message){
-    if (kDebugMode) log("$tag => ${message.toString()}", name: MyConfig.APP_NAME);
+  void logWhenDebug(String tag, String message) {
+    if (kDebugMode)
+      log("$tag => ${message.toString()}", name: MyConfig.APP_NAME);
   }
-
 }
 
 extension CapExtension on String {
   String get inCaps => '${this[0].toUpperCase()}${this.substring(1)}';
   String get allInCaps => this.toUpperCase();
-  String get capitalizeFirstofEach => this.split(" ").map((str) => str.capitalize).join(" ");
+  String get capitalizeFirstofEach =>
+      this.split(" ").map((str) => str.capitalize).join(" ");
 }
 
 extension StringExtension on String {

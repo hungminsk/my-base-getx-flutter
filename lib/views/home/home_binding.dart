@@ -9,16 +9,13 @@ class HomeBinding extends Bindings {
   void dependencies() {
     Get.lazyPut(() => HomeController());
   }
-
 }
 
 class HomeController extends BaseController {
-
   @override
   void onInit() {
     super.onInit();
     MyTranslations.init();
-    logWhenDebug("CURRENT LANGUAGE : ", Get.locale.languageCode.toString());
+    logWhenDebug("CURRENT LANGUAGE : ", Get.locale!.languageCode.toString());
   }
-
 }

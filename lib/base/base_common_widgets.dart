@@ -1,5 +1,6 @@
-import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
 import 'base_controller.dart';
 
 /// createdby Daewu Bintara
@@ -11,10 +12,11 @@ import 'base_controller.dart';
 /// Especialy in user interactions.
 /// You can find and use on your Controller wich is the Controller extends [BaseController].
 class BaseCommonWidgets implements _CommonWidgetsInterface {
-
   @override
   void showSnackBar({String title = "", String message = ""}) {
-    Get.snackbar(title, message,
+    Get.snackbar(
+      title,
+      message,
       backgroundColor: Colors.black45,
       barBlur: 8.0,
       snackPosition: SnackPosition.BOTTOM,
@@ -31,8 +33,7 @@ class BaseCommonWidgets implements _CommonWidgetsInterface {
         snackPosition: SnackPosition.BOTTOM,
         margin: EdgeInsets.only(bottom: 10.0, left: 10.0, right: 10.0),
         duration: Duration(seconds: 2),
-        icon: Icon(Icons.error, color: Colors.white)
-    );
+        icon: Icon(Icons.error, color: Colors.white));
   }
 
   @override
@@ -43,8 +44,7 @@ class BaseCommonWidgets implements _CommonWidgetsInterface {
         snackPosition: SnackPosition.BOTTOM,
         margin: EdgeInsets.only(bottom: 10.0, left: 10.0, right: 10.0),
         duration: Duration(seconds: 2),
-        icon: Icon(Icons.check_circle, color: Colors.white)
-    );
+        icon: Icon(Icons.check_circle, color: Colors.white));
   }
 
   @override
@@ -77,7 +77,7 @@ class BaseCommonWidgets implements _CommonWidgetsInterface {
 
   @override
   void hideDialog() {
-    if (Get.isDialogOpen) Get.back();
+    if (Get.isDialogOpen != null && Get.isDialogOpen == true) Get.back();
   }
 
   @override
@@ -90,72 +90,65 @@ class BaseCommonWidgets implements _CommonWidgetsInterface {
                 padding: EdgeInsets.all(10.0),
                 decoration: BoxDecoration(
                     color: Colors.white,
-                    borderRadius: BorderRadius.circular(10.0)
-                ),
+                    borderRadius: BorderRadius.circular(10.0)),
                 child: CircularProgressIndicator()),
           ),
         ),
         barrierDismissible: false,
-        name: "Loading Dialog"
-    );
+        name: "Loading Dialog");
   }
 
   @override
-  void showAlert({
-    String title = "Alert",
-    TextStyle titleStyle,
-    Widget content,
-    VoidCallback onConfirm,
-    VoidCallback onCancel,
-    VoidCallback onCustom,
-    Color cancelTextColor,
-    Color confirmTextColor,
-    String textConfirm,
-    String textCancel,
-    String textCustom,
-    Widget confirm,
-    Widget cancel,
-    Widget custom,
-    Color backgroundColor,
-    bool barrierDismissible = true,
-    Color buttonColor,
-    String middleText = "Dialog made in 3 lines of code",
-    TextStyle middleTextStyle,
-    double radius = 20.0,
-    List<Widget> actions,
-    WillPopCallback onWillPop
-  }) {
+  void showAlert(
+      {String title = "Alert",
+      TextStyle? titleStyle,
+      Widget? content,
+      VoidCallback? onConfirm,
+      VoidCallback? onCancel,
+      VoidCallback? onCustom,
+      Color? cancelTextColor,
+      Color? confirmTextColor,
+      String? textConfirm,
+      String? textCancel,
+      String? textCustom,
+      Widget? confirm,
+      Widget? cancel,
+      Widget? custom,
+      Color? backgroundColor,
+      bool barrierDismissible = true,
+      Color? buttonColor,
+      String middleText = "Dialog made in 3 lines of code",
+      TextStyle? middleTextStyle,
+      double radius = 20.0,
+      List<Widget>? actions,
+      WillPopCallback? onWillPop}) {
     Get.defaultDialog(
-        title : title,
-        titleStyle : titleStyle,
-        content : content,
-        onConfirm : onConfirm,
-        onCancel : onCancel,
-        onCustom : onCustom,
-        cancelTextColor : cancelTextColor,
-        confirmTextColor : confirmTextColor,
-        textConfirm : textConfirm,
-        textCancel : textCancel,
-        textCustom : textCustom,
-        confirm : confirm,
-        cancel : cancel,
-        custom : custom,
-        backgroundColor : backgroundColor,
-        barrierDismissible : barrierDismissible,
-        buttonColor : buttonColor,
-        middleText : middleText,
-        middleTextStyle : middleTextStyle,
-        radius : radius,
-        actions : actions,
-        onWillPop : onWillPop
-    );
+        title: title,
+        titleStyle: titleStyle,
+        content: content,
+        onConfirm: onConfirm,
+        onCancel: onCancel,
+        onCustom: onCustom,
+        cancelTextColor: cancelTextColor,
+        confirmTextColor: confirmTextColor,
+        textConfirm: textConfirm,
+        textCancel: textCancel,
+        textCustom: textCustom,
+        confirm: confirm,
+        cancel: cancel,
+        custom: custom,
+        backgroundColor: backgroundColor,
+        barrierDismissible: barrierDismissible,
+        buttonColor: buttonColor,
+        middleText: middleText,
+        middleTextStyle: middleTextStyle,
+        radius: radius,
+        actions: actions,
+        onWillPop: onWillPop);
   }
 }
 
-
-
 abstract class _CommonWidgetsInterface {
-
   void showSnackBar({String title = "", String message = ""});
 
   void showErrorSnackBar({String title = "", String message = ""});
@@ -170,34 +163,32 @@ abstract class _CommonWidgetsInterface {
 
   void showLoadingDialog();
 
-  void showAlert({
-    String title = "Alert",
-    TextStyle titleStyle,
-    Widget content,
-    VoidCallback onConfirm,
-    VoidCallback onCancel,
-    VoidCallback onCustom,
-    Color cancelTextColor,
-    Color confirmTextColor,
-    String textConfirm,
-    String textCancel,
-    String textCustom,
-    Widget confirm,
-    Widget cancel,
-    Widget custom,
-    Color backgroundColor,
-    bool barrierDismissible = true,
-    Color buttonColor,
-    String middleText = "Dialog made in 3 lines of code",
-    TextStyle middleTextStyle,
-    double radius = 20.0,
-    //   ThemeData themeData,
-    List<Widget> actions,
+  void showAlert(
+      {String title = "Alert",
+      TextStyle titleStyle,
+      Widget content,
+      VoidCallback onConfirm,
+      VoidCallback onCancel,
+      VoidCallback onCustom,
+      Color cancelTextColor,
+      Color confirmTextColor,
+      String textConfirm,
+      String textCancel,
+      String textCustom,
+      Widget confirm,
+      Widget cancel,
+      Widget custom,
+      Color backgroundColor,
+      bool barrierDismissible = true,
+      Color buttonColor,
+      String middleText = "Dialog made in 3 lines of code",
+      TextStyle middleTextStyle,
+      double radius = 20.0,
+      //   ThemeData themeData,
+      List<Widget> actions,
 
-    // onWillPop Scope
-    WillPopCallback onWillPop
-  });
+      // onWillPop Scope
+      WillPopCallback onWillPop});
 
   void hideDialog();
-
 }

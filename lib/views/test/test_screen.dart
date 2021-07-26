@@ -19,17 +19,18 @@ class TestScreen extends BaseView<TestController> {
       // ),
       body: _body(),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add, color: Colors.white,),
+        child: Icon(
+          Icons.add,
+          color: Colors.white,
+        ),
         onPressed: controller.increment,
-      )
-  );
+      ));
 
   _body() {
     if (controller.screenStateIsLoading)
       return Center(child: CircularProgressIndicator());
 
-    if (controller.screenStateIsError)
-      return Text(XR().string.error_message);
+    if (controller.screenStateIsError) return Text(XR().string.error_message);
 
     if (controller.screenStateIsOK)
       return Center(
@@ -39,18 +40,19 @@ class TestScreen extends BaseView<TestController> {
             Text("${controller.count}"),
             controller.member.id == null
                 ? Text("${controller.count}")
-                : Text("${controller.member?.name}"),
+                : Text("${controller.member.name}"),
             FlatButton(
-              child: Text("Member",
+              child: Text(
+                "Member",
                 style: AppThemes().general().textTheme.bodyText1,
               ),
-              onPressed: (){
+              onPressed: () {
                 controller.entryMember();
               },
             ),
             FlatButton(
               child: Text("Show Snackbar"),
-              onPressed: (){
+              onPressed: () {
                 controller.showSuccessSnackBar(
                     title: "Haloo",
                     message: "Pesan dari snackbar test_controller");
@@ -58,8 +60,9 @@ class TestScreen extends BaseView<TestController> {
             ),
             FlatButton(
               child: Text("Show Simple Snackbar"),
-              onPressed: (){
-                controller.showSimpleSuccessSnackBar(message: "Halo snackbar...");
+              onPressed: () {
+                controller.showSimpleSuccessSnackBar(
+                    message: "Halo snackbar...");
               },
             ),
             FlatButton(
@@ -80,5 +83,4 @@ class TestScreen extends BaseView<TestController> {
         ),
       );
   }
-
 }

@@ -10,10 +10,8 @@ import 'package:getx_flutter/base/networking/result.dart';
 /// Which function here you will make it and you will consume it.
 /// You can find and use on your Controller wich is the Controller extends [BaseController].
 class Repositories {
-
   ApiService _service = ApiService();
 
-  Future<Result> getDataMember() async => await _service.getData(endPoint: "test-get");
-
-
+  Future<Result> getDataMember() async =>
+      await _service.getData(endPoint: "test-get");
 }

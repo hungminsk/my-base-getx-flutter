@@ -13,7 +13,6 @@ class TestBinding extends Bindings {
     Get.lazyPut(() => TestController());
     Get.lazyPut(() => MemberController());
   }
-
 }
 
 class TestController extends BaseController {
@@ -35,10 +34,7 @@ class TestController extends BaseController {
   }
 
   void entryMember() {
-    member = Member(
-        id: 1,
-        name: "Daewu BP"
-    );
+    member = Member(id: 1, name: "Daewu BP");
     update();
   }
 
@@ -51,16 +47,16 @@ class TestController extends BaseController {
     if (res.isError) text = XR().string.error_message;
 
     if (res.status == true) {
-      try{
+      try {
         var member = Member.fromMap(res.body['member']);
-        text = member.name;
+        text = member.name!;
       } catch (e) {
         text = XR().string.error_message;
       }
     } else {
-      text = res.text;
+      text = res.text!;
     }
-    showSnackBar(title: "Response",  message: text);
+    showSnackBar(title: "Response", message: text);
   }
 
   void showAlertDialog() {
@@ -71,17 +67,13 @@ class TestController extends BaseController {
         confirmTextColor: Colors.white,
         textConfirm: "Okee",
         textCancel: "Batal",
-        onWillPop: () {},
-        onConfirm: (){
+        onWillPop: null,
+        onConfirm: () {
           hideDialog();
         },
-        onCancel: (){},
-        actions: [
-
-        ]
-    );
+        onCancel: () {},
+        actions: []);
   }
-
 
   void changeTheme() {
     if (Get.isDarkMode) {
